@@ -1,6 +1,5 @@
 <h1 class="h1align">Hacker News Top Stories</h1>
-
-<p *ngIf="!hackerNewsStories"><em>Loading...</em></p>
+<p *ngIf="hackerNewsStories==null">No Records Found</p>
 <div *ngIf="hackerNewsStories">
   <form>
     <mat-form-field style="margin-left:85%">

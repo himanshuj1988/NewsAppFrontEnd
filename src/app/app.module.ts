@@ -21,8 +21,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 
 import { HttpClientModule } from '@angular/common/http';
-
-import { NewsApiService } from './news-api.service';
 import { ExceptionService } from './core/Exception/exception.service';
 import { ToastService } from './core/toast/toast.service';
 import { FormsModule } from '@angular/forms';
@@ -63,7 +61,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
       { path: "about", component: AboutComponent }
     ])
   ],
-  providers: [NewsApiService,ExceptionService,ToastService],
+  providers: [ExceptionService,ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

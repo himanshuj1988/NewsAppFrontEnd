@@ -47,7 +47,10 @@ debugger
     this.dataSource.paginator = this.paginator;
     this.obs = this.dataSource.connect();
         },
-        error => console.error(error)
+        error => {console.error(error)
+          this.hackerNewsStories=null;
+        }
+       
       );
   }
 

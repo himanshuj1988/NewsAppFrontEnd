@@ -10,3 +10,15 @@ mat-card {
   {
     margin-left: 38% !important
   }
+  
+
+  .br_table .aa {
+    display: none;
+}
+
+.br_table .aa:nth-child(2) {
+    display: table-row-group !important;
+}
+.table th:last-child {
+    text-align: center !important;
+}
