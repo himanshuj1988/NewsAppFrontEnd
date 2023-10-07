@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, Inject, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import {MatTableDataSource} from "@angular/material/table"
+import { CONFIG } from '../core/config';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import {MatTableDataSource} from "@angular/material/table"
 })
 export class HomeComponent {
   public hackerNewsStories: HackerNewsStory[]=[];
-  private baseUrl: string="http://localhost:5121/";
+  private baseUrl= CONFIG.apiUrls.newsall;
+  //private baseUrl: string="http://localhost:5121/";
   @ViewChild(MatPaginator) paginator: MatPaginator ;
   obs: Observable<any> | undefined;
   dataSource: MatTableDataSource<HackerNewsStory> = new MatTableDataSource<HackerNewsStory>(this.hackerNewsStories);
@@ -30,7 +32,6 @@ debugger
    var contentHeaders = new HttpHeaders()
     .set('Accept', 'application/json')
       .set('Content-Type', 'application/json')
-      .set('Authorization', 'bearer '+ localStorage.getItem("token_ls"))
       .set('Access-Control-Allow-Origin', '*');
     this.http
       .get<HackerNewsStory[]>(
