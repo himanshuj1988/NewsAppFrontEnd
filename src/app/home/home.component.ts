@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import {MatTableDataSource} from "@angular/material/table"
 import { CONFIG } from '../core/config';
+import { NewsService } from '../Service/newsservice.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent {
 
   constructor(
     private http: HttpClient,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    public newsService: NewsService
   ) {
     
     this.get("");  
@@ -29,29 +31,23 @@ debugger
   }
 
   get(searchTerm: string) {
-   var contentHeaders = new HttpHeaders()
-    .set('Accept', 'application/json')
-      .set('Content-Type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*');
-    this.http
-      .get<HackerNewsStory[]>(
-        `${this.baseUrl}News?searchTerm=${searchTerm}`
-      )
-      .subscribe(
-        result => {
-          debugger
-          this.hackerNewsStories = result; 
-          
+  //  var contentHeaders = new HttpHeaders()
+  //   .set('Accept', 'application/json')
+  //     .set('Content-Type', 'application/json')
+  //     .set('Access-Control-Allow-Origin', '*');
+  //   this.http
+  //     .get<HackerNewsStory[]>(
+  //       `${this.baseUrl}News?searchTerm=${searchTerm}`,{headers:contentHeaders}
+  //     )
+
+  this.newsService.getClientSiteList(searchTerm) .subscribe((clientSiteList : HackerNewsStory[]) => {    
+            this.hackerNewsStories = clientSiteList;       
           this.changeDetectorRef.detectChanges();
     this.dataSource=new MatTableDataSource<HackerNewsStory>(this.hackerNewsStories);
     this.dataSource.paginator = this.paginator;
     this.obs = this.dataSource.connect();
-        },
-        error => {console.error(error)
-          this.hackerNewsStories=null;
-        }
-       
-      );
+  });
+
   }
 
   search(event: KeyboardEvent) {

@@ -31,6 +31,7 @@ import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { NewsService } from './Service/newsservice.service';
 
 
 
@@ -61,7 +62,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
       { path: "about", component: AboutComponent }
     ])
   ],
-  providers: [ExceptionService,ToastService],
+  providers: [ExceptionService,ToastService,NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
