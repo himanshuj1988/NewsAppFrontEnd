@@ -22,6 +22,7 @@ export class HomeComponent {
     private http: HttpClient,
     private changeDetectorRef: ChangeDetectorRef,
     public newsService: NewsService
+    
   ) {
     
     this.getNews("");  

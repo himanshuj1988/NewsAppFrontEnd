@@ -1,6 +1,6 @@
 <h1 class="h1align">Hacker News Top Stories</h1>
-<p *ngIf="hackerNewsStories==null">No Records Found</p>
-<div *ngIf="hackerNewsStories">
+<p *ngIf="hackerNewsStories==null || hackerNewsStories.length==0">No Records Found</p>
+<div *ngIf="hackerNewsStories.length>0">
   <form>
     <mat-form-field style="margin-left:85%">
       <input matInput placeholder="Search" (keyup)="search($event)">
@@ -13,5 +13,4 @@
     </mat-card-content>
   </mat-card>
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-
 </div>

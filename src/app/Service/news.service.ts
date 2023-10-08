@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ExceptionService } from '../core/Exception/exception.service';
 import { Observable, catchError, map } from 'rxjs';
 import { HttpRequestConstants } from '../core/provider/http-request.provider';
-
 let url = CONFIG.apiUrls.newsall;
 
 @Injectable()
@@ -16,7 +15,7 @@ export class NewsService {
 
   constructor(private _http: HttpClient,
      private _httpRequestOptions: HttpRequestConstants,
-    private _exceptionService: ExceptionService,) { }
+    private _exceptionService: ExceptionService) { }
 
     getAllNews(searchTerm:string):Observable<HackerNewsStory[]> {    
      return this._http.get<Observable<HackerNewsStory[]>>(`${url}searchTerm=${searchTerm}`,{
