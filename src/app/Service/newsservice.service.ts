@@ -18,15 +18,13 @@ export class NewsService {
      private _httpRequestOptions: HttpRequestConstants,
     private _exceptionService: ExceptionService,) { }
 
-    getClientSiteList(searchTerm:string):Observable<HackerNewsStory[]> {    
+    getAllNews(searchTerm:string):Observable<HackerNewsStory[]> {    
      return this._http.get<Observable<HackerNewsStory[]>>(`${url}News?searchTerm=${searchTerm}`,{
       headers:this._httpRequestOptions.RequestOptions() }).pipe(
       map((response: any) => response),
       catchError(this._exceptionService.catchBadResponse),)
 
   }
-
-
   
 }
 

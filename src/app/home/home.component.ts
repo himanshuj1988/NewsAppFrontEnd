@@ -31,16 +31,7 @@ debugger
   }
 
   get(searchTerm: string) {
-  //  var contentHeaders = new HttpHeaders()
-  //   .set('Accept', 'application/json')
-  //     .set('Content-Type', 'application/json')
-  //     .set('Access-Control-Allow-Origin', '*');
-  //   this.http
-  //     .get<HackerNewsStory[]>(
-  //       `${this.baseUrl}News?searchTerm=${searchTerm}`,{headers:contentHeaders}
-  //     )
-
-  this.newsService.getClientSiteList(searchTerm) .subscribe((clientSiteList : HackerNewsStory[]) => {    
+  this.newsService.getAllNews(searchTerm) .subscribe((clientSiteList : HackerNewsStory[]) => {    
             this.hackerNewsStories = clientSiteList;       
           this.changeDetectorRef.detectChanges();
     this.dataSource=new MatTableDataSource<HackerNewsStory>(this.hackerNewsStories);

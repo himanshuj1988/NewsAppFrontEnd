@@ -32,6 +32,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { NewsService } from './Service/newsservice.service';
+import { HttpRequestConstants } from './core/provider/http-request.provider';
 
 
 
@@ -62,7 +63,7 @@ import { NewsService } from './Service/newsservice.service';
       { path: "about", component: AboutComponent }
     ])
   ],
-  providers: [ExceptionService,ToastService,NewsService],
+  providers: [ExceptionService,ToastService,NewsService,HttpRequestConstants],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
