@@ -14,7 +14,6 @@ import { NewsService } from '../Service/news.service';
 export class HomeComponent {
   public hackerNewsStories: HackerNewsStory[]=[];
   private baseUrl= CONFIG.apiUrls.newsall;
-  //private baseUrl: string="http://localhost:5121/";
   @ViewChild(MatPaginator) paginator: MatPaginator ;
   obs: Observable<any> | undefined;
   dataSource: MatTableDataSource<HackerNewsStory> = new MatTableDataSource<HackerNewsStory>(this.hackerNewsStories);
@@ -25,15 +24,15 @@ export class HomeComponent {
     public newsService: NewsService
   ) {
     
-    this.get("");  
+    this.getNews("");  
 debugger
     
   }
 
-  get(searchTerm: string) {
-  this.newsService.getAllNews(searchTerm) .subscribe((clientSiteList : HackerNewsStory[]) => {    
-            this.hackerNewsStories = clientSiteList;       
-          this.changeDetectorRef.detectChanges();
+  getNews(searchTerm: string) {
+  this.newsService.getAllNews(searchTerm) .subscribe((newsdata : HackerNewsStory[]) => {    
+    this.hackerNewsStories = newsdata;       
+    this.changeDetectorRef.detectChanges();
     this.dataSource=new MatTableDataSource<HackerNewsStory>(this.hackerNewsStories);
     this.dataSource.paginator = this.paginator;
     this.obs = this.dataSource.connect();
@@ -42,7 +41,7 @@ debugger
   }
 
   search(event: KeyboardEvent) {
-    this.get((event.target as HTMLTextAreaElement).value);
+    this.getNews((event.target as HTMLTextAreaElement).value);
   }
 
   open(url: string) {
