@@ -3,7 +3,7 @@ let base = 'http://localhost:5121/';
 
 export const CONFIG = {
     apiUrls: {
-        newsall: base,  
+        newsall: base+"News?",  
       
     }
 };

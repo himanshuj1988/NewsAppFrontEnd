@@ -19,7 +19,7 @@ export class NewsService {
     private _exceptionService: ExceptionService,) { }
 
     getAllNews(searchTerm:string):Observable<HackerNewsStory[]> {    
-     return this._http.get<Observable<HackerNewsStory[]>>(`${url}News?searchTerm=${searchTerm}`,{
+     return this._http.get<Observable<HackerNewsStory[]>>(`${url}searchTerm=${searchTerm}`,{
       headers:this._httpRequestOptions.RequestOptions() }).pipe(
       map((response: any) => response),
       catchError(this._exceptionService.catchBadResponse),)
