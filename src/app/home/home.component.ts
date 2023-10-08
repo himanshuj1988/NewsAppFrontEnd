@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import {MatTableDataSource} from "@angular/material/table"
 import { CONFIG } from '../core/config';
-import { NewsService } from '../Service/newsservice.service';
+import { NewsService } from '../Service/news.service';
 
 @Component({
   selector: 'app-home',

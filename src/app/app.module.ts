@@ -31,7 +31,7 @@ import { HomeComponent } from './home/home.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 import {MatPaginatorModule} from "@angular/material/paginator";
-import { NewsService } from './Service/newsservice.service';
+import { NewsService } from './Service/news.service';
 import { HttpRequestConstants } from './core/provider/http-request.provider';
 
 
