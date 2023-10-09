@@ -31,7 +31,8 @@ debugger
   }
 
   getNews(searchTerm: string) {
-  this.newsService.getAllNews(searchTerm) .subscribe((newsdata : HackerNewsStory[]) => {    
+  this.newsService.getAllNews(searchTerm) .subscribe((newsdata : HackerNewsStory[]) => {  
+    debugger  
     this.hackerNewsStories = newsdata;       
     this.changeDetectorRef.detectChanges();
     this.dataSource=new MatTableDataSource<HackerNewsStory>(this.hackerNewsStories);

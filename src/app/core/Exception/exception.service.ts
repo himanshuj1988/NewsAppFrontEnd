@@ -14,15 +14,13 @@ export class ExceptionService {
 console.log(res);
 
        if(res.status === 0){  
-        //this.toastService.activate("Oops! Something went wrong!");
     return observableOf();
     }else{
-       //this.toastService.activate("Oops! Something went wrong!");
     }
     let err = res;
     // if (err.error) {
       return observableThrowError(err);
     //}
-    return observableOf();
+
   }
 }

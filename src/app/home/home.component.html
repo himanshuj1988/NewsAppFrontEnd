@@ -1,12 +1,11 @@
 <h1 class="h1align">Hacker News Top Stories</h1>
-<p *ngIf="hackerNewsStories==null || hackerNewsStories.length==0">
-  
-  <mat-card>
+<p *ngIf="hackerNewsStories.length==0"><em>Loading...</em></p>
+<p *ngIf="hackerNewsStories==null">
+    <mat-card>
     <mat-card-content>
       <mat-card-title>No Record Found</mat-card-title>
     </mat-card-content>
   </mat-card>
-
 </p>
 <div *ngIf="hackerNewsStories.length>0">
   <form>
