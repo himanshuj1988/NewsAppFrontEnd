@@ -33,11 +33,18 @@ debugger
   getNews(searchTerm: string) {
   this.newsService.getAllNews(searchTerm) .subscribe((newsdata : HackerNewsStory[]) => {  
     debugger  
+    if(newsdata.length>0)
+    {
     this.hackerNewsStories = newsdata;       
     this.changeDetectorRef.detectChanges();
     this.dataSource=new MatTableDataSource<HackerNewsStory>(this.hackerNewsStories);
     this.dataSource.paginator = this.paginator;
     this.obs = this.dataSource.connect();
+    }
+    else
+    {
+      this.hackerNewsStories=null;
+    }
   });
 
   }
