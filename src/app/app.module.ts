@@ -22,7 +22,6 @@ import {MatListModule} from '@angular/material/list';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ExceptionService } from './core/Exception/exception.service';
-import { ToastService } from './core/toast/toast.service';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from "@angular/material/input";
 import { RouterModule } from '@angular/router';
@@ -63,7 +62,7 @@ import { HttpRequestConstants } from './core/provider/http-request.provider';
       { path: "about", component: AboutComponent }
     ])
   ],
-  providers: [ExceptionService,ToastService,NewsService,HttpRequestConstants],
+  providers: [ExceptionService,NewsService,HttpRequestConstants],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

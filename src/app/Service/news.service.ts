@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ExceptionService } from '../core/Exception/exception.service';
 import { Observable, catchError, map } from 'rxjs';
 import { HttpRequestConstants } from '../core/provider/http-request.provider';
+import { HackerNewsStory } from '../core/modal/hackernewsinterface';
 let url = CONFIG.apiUrls.newsall;
 
 @Injectable()
@@ -25,11 +26,4 @@ export class NewsService {
 
   }
   
-}
-
-
-interface HackerNewsStory {
-  title: string;
-  by: string;
-  url: string;
 }
