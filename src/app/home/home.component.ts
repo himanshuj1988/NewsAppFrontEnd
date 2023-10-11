@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {MatTableDataSource} from "@angular/material/table"
 import { CONFIG } from '../core/config';
 import { NewsService } from '../Service/news.service';
+import { HackerNewsStory } from '../core/modal/hackernewsinterface';
 
 @Component({
   selector: 'app-home',
@@ -26,13 +27,12 @@ export class HomeComponent {
   ) {
     
     this.getNews("");  
-debugger
+
     
   }
 
   getNews(searchTerm: string) {
   this.newsService.getAllNews(searchTerm) .subscribe((newsdata : HackerNewsStory[]) => {  
-    debugger  
     if(newsdata.length>0)
     {
     this.hackerNewsStories = newsdata;       
@@ -56,12 +56,6 @@ debugger
   open(url: string) {
     window.open(url, "_blank");
   }
-}
-
-interface HackerNewsStory {
-  title: string;
-  by: string;
-  url: string;
 }
 
 
