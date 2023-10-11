@@ -18,6 +18,12 @@ export class NewsService {
      private _httpRequestOptions: HttpRequestConstants,
     private _exceptionService: ExceptionService) { }
 
+/*  
+Created By :Himanshu Joshi
+Created On : 08-10-2023
+Description: This service function makes and API call to pull all the data from News Server
+*/
+
     getAllNews(searchTerm:string):Observable<HackerNewsStory[]> {    
      return this._http.get<Observable<HackerNewsStory[]>>(`${url}searchTerm=${searchTerm}`,{
       headers:this._httpRequestOptions.RequestOptions() }).pipe(
